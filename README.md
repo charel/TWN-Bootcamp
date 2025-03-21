@@ -1,2 +1,5 @@
-# TWN-Bootcamp
-Repository for the different exercises going through the Techworld with Nana DevOps Bootcamp
+# DevOps Bootcamp Exercises
+This repo contains the exercises for the individual chapters of the Techworld With Nana DevOps Bootcamp. 
+
+Find more information about the Bootcamp [here](https://www.techworld-with-nana.com/devops-bootcamp). 
+
