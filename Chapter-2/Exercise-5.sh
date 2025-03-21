@@ -29,7 +29,7 @@ while true;
 do 
 	read proc_num
 
-	if (( var == var ));
+	if [[ "$proc_num" =~ ^[0-9]+$ ]];
 	then 
 		break
 	else
