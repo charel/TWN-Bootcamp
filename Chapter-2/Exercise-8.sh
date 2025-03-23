@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# 
+if command -v node &>/dev/null;
+then
+	:
+else
+	echo "Installing nodeJS."
+	sudo apt -y install nodejs
+fi
+node_version=$(node -v)
+echo "NodeJS version ${node_version:1} installed."
+
+if command -v npm &>/dev/null;
+then
+	:
+else
+	echo "Installing NPM."
+	sudo apt -y install npm
+fi
+npm_version=$(npm -v)
+echo "NPM version $npm_version installed."
+
+echo "Downloading the Node App"
+mkdir -p node-App
+wget https://node-envvars-artifact.s3.eu-west-2.amazonaws.com/bootcamp-node-envvars-project-1.0.0.tgz
+tar -xvzf bootcamp-node-envvars-project-1.0.0.tgz -C node-App/
+echo "Node App downloaded and unpacked, deleting archive."
+rm *.tgz*
+
+log_dir=$1
+if [ ! -d "$log_dir" ];
+then
+	echo "Log folder doesn't exist, creating."
+	mkdir -p $log_dir
+fi
+
+export LOG_DIR=$(realpath "$log_dir")
+echo $LOG_DIR
+export APP_ENV="dev"
+export DB_USER="myuser"
+export DB_PWD="mysecret"
+
+cd node-App/package
+npm install >/dev/null
+node server.js &>/dev/null &
+
+
+procInfo=$(pgrep -l "node")
+procName=$(echo $procInfo | awk '{print $2}')
+pid=$(echo $procInfo | awk '{print $1}')
+listenPort=$(ss -tulnp | awk '/node/ {split($5, a, ":"); print a[length(a)]}')
+
+echo "server.js is running in the background with the process name $procName and PID $pid, listening on port $listenPort."
+
+if [ "$2" = "kill" ]; then
+	kill $pid
+fi
+
+
