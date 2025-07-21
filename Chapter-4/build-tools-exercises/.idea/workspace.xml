@@ -18,9 +18,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="3093cXdMJTLBHqcaWBT3oKhPVbf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,7 +32,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/assa/Documents/TWN-Bootcamp/Chapter-5/cloud-basics-exercises",
+    "last_opened_file_path": "/home/assa/Documents/TWN-Bootcamp/Chapter-6/java-maven-app",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
